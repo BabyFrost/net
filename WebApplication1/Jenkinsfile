@@ -3,27 +3,27 @@ pipeline {
 	
 	stages {
 	
-	    stage( "Compile" ) {
+	    stage( "Release" ) {
 	        steps {
-	            bat "mvn clean package"
+	            bat "dotnet clean -c release"
 	        }
 	    }
 	    	    
 	    stage( "Docker build" ) {
 	        steps {
-	            bat "docker build -t voufi/demo:latest ."
+	            bat "docker build -t voufi/net:latest ."
 	        }
 	    }
 	    
 	    stage( "Docker Tag" ) {
 	        steps {
-	            bat "docker tag voufi/demo localhost:5000/voufi/demo"
+	            bat "docker tag voufi/net localhost:5000/voufi/net"
 	        }
 	    }
 	    
 	    stage( "Docker Push" ) {
 	        steps {
-	            bat "docker push localhost:5000/voufi/demo"
+	            bat "docker push localhost:5000/voufi/net"
 	        }
 	    }
 	    
