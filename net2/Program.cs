@@ -21,7 +21,7 @@ namespace net2
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls( "http://localhost:8088" );
+                    webBuilder.UseUrls( "http://*:8088" );
                 });
     }
 }
