@@ -5,8 +5,13 @@ pipeline {
 	
 	    stage( "Release" ) {
 	        steps {
-	            bat "dotnet clean -c release"
+	            bat "dotnet clean"
 	        }
+
+			steps {
+	            bat "dotnet -c release"
+	        }
+
 	    }
 	    	    
 	    stage( "Docker build" ) {
