@@ -11,7 +11,7 @@ pipeline {
 
 		stage( "Release" ) {
 			steps {
-	            bat "dotnet -c release"
+	            bat "dotnet publish -c release"
 	        }
 	    }
 	    	    
